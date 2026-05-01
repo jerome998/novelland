@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WonderVault — Premium Fragrances, Tech & More</title>
+  <meta name="description" content="Step into the vault where every chapter brings something new. Designer fragrances, electronics and more — WonderVault is your one-stop world of amazing finds." />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-logo">WonderVault</div>
+  <ul class="nav-links">
+    <li><a href="#products">Shop</a></li>
+    <li><a href="#products">Fragrances</a></li>
+    <li><a href="#products">Electronics</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="cart-btn" onclick="openCart()" aria-label="Open cart">
+      🛒 <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">✨ From Novel's Wonderland · Free shipping over $75</p>
+    <h1 class="hero-title">Designer finds &<br><em>amazing</em> deals.</h1>
+    <p class="hero-desc">
+      Step into the vault where every chapter brings something new.
+      Premium fragrances, electronics and more — all at WonderVault.
+    </p>
+    <div class="hero-cta">
+      <a href="#products" class="btn btn-primary">Shop now →</a>
+      <a href="https://youtube.com/@novélswonderland" target="_blank" class="btn btn-outline">📺 Our YouTube</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-img-grid">
+      <img src="images/IMG_2670.jpeg" alt="Juicy Couture Perfume" class="himg himg1" />
+      <img src="images/IMG_2667.jpeg" alt="Stella McCartney" class="himg himg2" />
+      <img src="images/IMG_2678.jpeg" alt="HDMI Switch" class="himg himg3" />
+      <img src="images/IMG_2384.jpeg" alt="Jean Paul Gaultier" class="himg himg4" />
+    </div>
+    <div class="hero-badge">
+      <strong>⭐ 4.9</strong>
+      Trusted seller on eBay
+    </div>
+  </div>
+</section>
+
+<!-- ══ UPLOAD BANNER ══ -->
+<div class="upload-banner">
+  <span>🖼 Have more products to add?</span>
+  <button class="btn btn-sm" onclick="document.getElementById('uploadModal').classList.add('open')">+ Upload Product Photos</button>
+</div>
+
+<!-- ══ FILTERS ══ -->
+<div class="filters-bar" id="products">
+  <div class="filter-chips">
+    <button class="chip active" onclick="filterProducts('all', this)">All</button>
+    <button class="chip" onclick="filterProducts('fragrance', this)">🌸 Fragrances</button>
+    <button class="chip" onclick="filterProducts('electronics', this)">🔌 Electronics</button>
+    <button class="chip" onclick="filterProducts('lights', this)">💡 Lights</button>
+  </div>
+  <select class="sort-select" onchange="sortProducts(this.value)">
+    <option value="default">Sort: Featured</option>
+    <option value="low">Price: Low → High</option>
+    <option value="high">Price: High → Low</option>
+  </select>
+</div>
+
+<!-- ══ PRODUCTS ══ -->
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">All Products</h2>
+    <span class="section-count" id="productCount"></span>
+  </div>
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- ══ FEATURES ══ -->
+<section class="features" id="about">
+  <div class="feature">
+    <div class="feature-icon">📦</div>
+    <h3 class="feature-title">Fast Shipping</h3>
+    <p class="feature-desc">All orders shipped with tracking. Free shipping on orders over $75.</p>
+  </div>
+  <div class="feature">
+    <div class="feature-icon">✅</div>
+    <h3 class="feature-title">100% Authentic</h3>
+    <p class="feature-desc">Every product is genuine. No fakes, no imitations — guaranteed.</p>
+  </div>
+  <div class="feature">
+    <div class="feature-icon">💬</div>
+    <h3 class="feature-title">Real Support</h3>
+    <p class="feature-desc">Questions? We reply fast. Your satisfaction is our priority.</p>
+  </div>
+</section>
+
+<!-- ══ NEWSLETTER ══ -->
+<section class="newsletter" id="contact">
+  <h2 class="newsletter-title">Stay in the loop</h2>
+  <p class="newsletter-desc">New drops, exclusive deals, and updates from Novel's Wonderland.</p>
+  <div class="newsletter-form">
+    <input class="email-input" type="email" placeholder="your@email.com" />
+    <button class="btn btn-primary" onclick="subscribeNewsletter()">Subscribe</button>
+  </div>
+  <p class="youtube-plug">Also on YouTube → <a href="https://youtube.com" target="_blank">Novel's Wonderland</a></p>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-about">
+    <div class="footer-brand">WonderVault</div>
+    <p class="footer-tagline">Premium products, amazing prices.</p>
+    <p class="footer-youtube">🎧 <a href="https://youtube.com" target="_blank">Novel's Wonderland on YouTube</a></p>
+  </div>
+  <div>
+    <p class="footer-col-title">Shop</p>
+    <ul class="footer-links">
+      <li><a href="#products">All Products</a></li>
+      <li><a href="#" onclick="filterChipClick('fragrance')">Fragrances</a></li>
+      <li><a href="#" onclick="filterChipClick('electronics')">Electronics</a></li>
+      <li><a href="#" onclick="filterChipClick('lights')">Lights</a></li>
+    </ul>
+  </div>
+  <div>
+    <p class="footer-col-title">Info</p>
+    <ul class="footer-links">
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#">Shipping Policy</a></li>
+      <li><a href="#">Returns</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2026 WonderVault. All rights reserved.</span>
+  <span>From the world of Novel's Wonderland ✨</span>
+</div>
+
+<!-- ══ CART DRAWER ══ -->
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="drawer-header">
+    <span class="drawer-title">Your Cart</span>
+    <button class="close-btn" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty"><span class="empty-icon">🛒</span><p>Your cart is empty.</p></div>
+  </div>
+  <div class="drawer-footer">
+    <div class="subtotal-row">
+      <span class="subtotal-label">Subtotal</span>
+      <span class="subtotal-amount" id="subtotalAmount">$0.00</span>
+    </div>
+    <button class="btn btn-primary checkout-btn" onclick="checkout()">Checkout →</button>
+  </div>
+</div>
+
+<!-- ══ PRODUCT MODAL ══ -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleModalClick(event)">
+  <div class="modal" id="productModal">
+    <div class="modal-gallery" id="modalGallery"></div>
+    <div class="modal-body">
+      <p class="modal-category" id="modalCategory"></p>
+      <h2 class="modal-title" id="modalTitle"></h2>
+      <p class="modal-price" id="modalPrice"></p>
+      <p class="modal-desc" id="modalDesc"></p>
+      <div class="modal-actions">
+        <button class="btn btn-primary" onclick="addFromModal()">Add to Cart</button>
+        <button class="btn btn-outline" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ UPLOAD MODAL ══ -->
+<div class="modal-overlay" id="uploadModal" onclick="handleUploadClick(event)">
+  <div class="upload-modal">
+    <div class="upload-header">
+      <h2>Add New Product</h2>
+      <button class="close-btn" onclick="document.getElementById('uploadModal').classList.remove('open')">✕</button>
+    </div>
+    <div class="upload-body">
+      <div class="upload-drop-zone" id="dropZone" onclick="document.getElementById('photoInput').click()">
+        <span class="upload-icon">📷</span>
+        <p>Click to upload product photos</p>
+        <p class="upload-sub">JPG, PNG supported</p>
+        <input type="file" id="photoInput" accept="image/*" multiple style="display:none" onchange="handlePhotoUpload(event)" />
+      </div>
+      <div class="upload-previews" id="uploadPreviews"></div>
+      <div class="upload-fields">
+        <input class="field-input" type="text" id="newProductName" placeholder="Product name *" />
+        <input class="field-input" type="number" id="newProductPrice" placeholder="Price ($) *" />
+        <input class="field-input" type="number" id="newProductOldPrice" placeholder="Original price (optional)" />
+        <select class="field-input" id="newProductCat">
+          <option value="fragrance">🌸 Fragrance</option>
+          <option value="electronics">🔌 Electronics</option>
+          <option value="lights">💡 Lights</option>
+          <option value="other">📦 Other</option>
+        </select>
+        <textarea class="field-input" id="newProductDesc" rows="3" placeholder="Product description *"></textarea>
+      </div>
+      <button class="btn btn-primary" style="width:100%" onclick="addNewProduct()">Add Product to Store</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TOAST ══ -->
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
